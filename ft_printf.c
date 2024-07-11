@@ -72,27 +72,27 @@ int     ft_printf(const char *format, ...){
                 compteur += 1;
                 i += 2;
             }else if(format[i + 1] == 's'){
-                compteur = printf_nb_string(va_arg(arg_list, char*));
+                compteur += printf_nb_string(va_arg(arg_list, char*));
                 i += 2;
             }else if(format[i + 1] == 'p'){
-                compteur = printf_nb_pointeur(va_arg(arg_list, void*));
+                compteur += printf_nb_pointeur(va_arg(arg_list, void*));
                 i += 2;
             }else if(format[i + 1] == 'd' || format[i + 1] == 'i'){
-                compteur = printf_nb_integer(va_arg(varg_list, int));
+                compteur += printf_nb_integer(va_arg(varg_list, int));
                 i += 2;
             }else if(format[i + 1] == 'u'){
-                compteur = printf_nb_unsigedInteger(va_arg(arg_list, unsigned int));
+                compteur += printf_nb_unsigedInteger(va_arg(arg_list, unsigned int));
                 i += 2;
             }else if(format[i + 1] == 'x'){
-                //ce seront les m^me fonction mais avec un retour différent en min ou maj.
-                compteur = printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
+                //ce seront les même fonction mais avec un retour différent en min ou maj.
+                compteur += printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
                 i += 2;
             }else if(format[i + 1] == 'X'){
                 //ce seront les m^me fonction mais avec un retour différent en min ou maj.
-                compteur = printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
+                compteur += printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
                 i += 2;
             }else if(format[i + 1] == '%'){
-                compteur = printf_nb_pourcent(va_arg(arg_list, char));
+                compteur += printf_nb_pourcent(va_arg(arg_list, char));
                 i += 2;
             }
         }else{
