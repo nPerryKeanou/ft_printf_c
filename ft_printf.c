@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <libftprintf.h>
 
 /*
     va_start    :   Initialise une variable ' va_list ' à utiliser avec ' va_arg ' et ' va_end '. 
@@ -55,6 +58,19 @@ Si c'est un s.format, il ne faudra pas incrémenter i avec le char '%' et son s.
 Une fois cette fnonction faite, on passe le reste des if et on recommance la boucle. 
 
 */
+void ft_putchar(char c){
+    write(1, &c, 1);
+}
+
+void    ft_putstr(char *str){
+    int i;
+
+    i = 0;
+    while(str[i] != '\0'){
+        ft_putchar(str[i]);
+        i++;
+    }
+}
 
 int     ft_printf(const char *format, ...){
     int i;
@@ -62,13 +78,13 @@ int     ft_printf(const char *format, ...){
 
     i = 0;
     compteur = 0;
-    va_list = arg_list;
-    va_start = (arg_list, format);
+    va_list arg_list;
+    va_start(arg_list, format);
 
     while(format[i] != '\0'){
         if(format[i] == '%'){
             if(format[i + 1] == 'c'){
-                write(format[i + 1]);
+                ft_putchar(format[i + 1]);
                 compteur += 1;
                 i += 2;
             }else if(format[i + 1] == 's'){
@@ -78,28 +94,30 @@ int     ft_printf(const char *format, ...){
                 compteur += printf_nb_pointeur(va_arg(arg_list, void*));
                 i += 2;
             }else if(format[i + 1] == 'd' || format[i + 1] == 'i'){
-                compteur += printf_nb_integer(va_arg(varg_list, int));
+                compteur += ft_putnbr_d_i(va_arg(arg_list, int));
                 i += 2;
             }else if(format[i + 1] == 'u'){
-                compteur += printf_nb_unsigedInteger(va_arg(arg_list, unsigned int));
+                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789");
                 i += 2;
             }else if(format[i + 1] == 'x'){
                 //ce seront les même fonction mais avec un retour différent en min ou maj.
-                compteur += printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
+                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789abcde");
                 i += 2;
             }else if(format[i + 1] == 'X'){
-                //ce seront les m^me fonction mais avec un retour différent en min ou maj.
-                compteur += printf_nb_hexadecimal(va_arg(arg_list, unsigned int));
+                //ce seront les même fonction mais avec un retour différent en min ou maj.
+                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789ABCDE");
                 i += 2;
             }else if(format[i + 1] == '%'){
-                compteur += printf_nb_pourcent(va_arg(arg_list, char));
-                i += 2;
+                ft_putchar('%');
+                //compteur += printf_pourcent(va_arg(arg_list, int), i, format);
+                i += 1;
             }
         }else{
+            ft_putchar(format[i]);
             i++;
             compteur += 1;
         }
     }
-    va_end = arg_list;
+    va_end (arg_list);
     return(compteur);
 }

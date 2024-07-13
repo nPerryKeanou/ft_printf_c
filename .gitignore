@@ -1,2 +1,2 @@
 # Ignorer les fichiers de test
-test.c
+#main.c
