@@ -83,7 +83,13 @@ int     ft_printf(const char *format, ...){
 
     while(format[i] != '\0'){
         if(format[i] == '%'){
-            if(format[i + 1] == 'c'){
+            if (format[i + 1] == '%'){
+                ft_putchar(format[i]);
+                compteur++;
+                i += 2;
+            }else if(format[i + 1] == 'c'){
+                //ft_putchar(format[i + 1]);
+                //compteur += 1;
                 compteur += printf_c(va_arg(arg_list, int));//pourquoi int ? En C, les arguments de fonctions de type char sont automatiquement promus en int lorsqu'ils sont passés comme arguments de fonctions variadiques (utilisant ... et va_arg).//Cela signifie que même si vous passez un char comme argument, il est traité comme un int lorsqu'il est extrait de arg_list avec va_arg.
                 i += 2;
             }else if(format[i + 1] == 's'){
@@ -96,26 +102,20 @@ int     ft_printf(const char *format, ...){
                 compteur += ft_putnbr_d_i(va_arg(arg_list, int));
                 i += 2;
             }else if(format[i + 1] == 'u'){
-                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789");
+                compteur += ft_putnbr_u(va_arg(arg_list, unsigned int));
                 i += 2;
             }else if(format[i + 1] == 'x'){
-                //ce seront les même fonction mais avec un retour différent en min ou maj.
-                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789abcde");
+                compteur += ft_putnbr_base(va_arg(arg_list,  long int), "0123456789abcdef");
                 i += 2;
             }else if(format[i + 1] == 'X'){
-                //ce seront les même fonction mais avec un retour différent en min ou maj.
-                compteur += ft_putnbr_base(va_arg(arg_list, unsigned int), "0123456789ABCDE");
+                compteur += ft_putnbr_base(va_arg(arg_list,  long int), "0123456789ABCDEF");
                 i += 2;
-            }else if(format[i + 1] == '%'){
-                ft_putchar('%');
-                //compteur += printf_pourcent(va_arg(arg_list, int), i, format);
-                i += 1;
             }
-        }else{
-            ft_putchar(format[i]);
-            i++;
-            compteur += 1;
-        }
+    }else{
+        ft_putchar(format[i]);
+        i++;
+        compteur += 1;
+    }
     }
     va_end (arg_list);
     return(compteur);

@@ -48,7 +48,7 @@ AR = ar rcs
 RM = rm -f
 
 # Source files
-SRC = ft_printf.c ft_printf_d_i.c ft_printf_pourcent.c ft_putnbr_base.c printf_p.c printf_s.c printf_c.c
+SRC = ft_printf.c ft_printf_d_i.c  ft_putnbr_base.c printf_p.c printf_s.c printf_c.c printf_u.c
 OBJ = $(SRC:.c=.o)
 
 # Target
