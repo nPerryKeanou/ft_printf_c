@@ -30,16 +30,140 @@ static int ft_putnbr(int nb){
 
 int main(void) {
 
-
+    int min_int = INT_MIN;
+    int max_int = INT_MAX;
     int retour_printf = 0;
     int retour_ft_printf = 0;
 
     //d et i
-    printf("printf ---> %d", INT_MIN);
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", -8);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", -8);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", 8);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", 8);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", -0);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", -0);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", 0);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", 0);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", min_int);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", min_int);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %d\n", max_int);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %d\n", max_int);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", -8);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", -8);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", 8);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", 8);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", -0);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", -0);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", 0);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", 0);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", min_int);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", min_int);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", max_int);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", max_int);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    // retour_printf = printf("printf ---> %i\n", 10.2);
+    // ft_putnbr(retour_printf);
+    // ft_putchar('\n');
+    // retour_ft_printf = ft_printf("ft_printf ---> %i\n", 10.2);
+    // ft_putnbr(retour_ft_printf - 3);
+    // ft_putchar('\n');
+    // ft_putchar('\n');
+    
     ft_putchar('\n');
-    ft_printf("ft_printf ---> %d", INT_MIN);
     ft_putchar('\n');
+    ft_putchar('\n');
+
     //c
+    retour_printf = printf("printf ---> %c\n", 'a');
+    ft_putnbr(retour_printf);
+    ft_putchar('\n');
+    retour_ft_printf = ft_printf("ft_printf ---> %c\n", 'a');
+    ft_putnbr(retour_ft_printf - 3);
+    ft_putchar('\n');
+    ft_putchar('\n');
+    retour_printf = printf("printf ---> %c\n", '1');
+    ft_putnbr(retour_printf);
+    ft_putchar('\n');
+    retour_ft_printf = ft_printf("ft_printf ---> %c\n", '1');
+    ft_putnbr(retour_ft_printf - 3);
+    ft_putchar('\n');
+    ft_putchar('\n');
+    retour_printf = printf("printf ---> %c\n", '-');
+    ft_putnbr(retour_printf);
+    ft_putchar('\n');
+    retour_ft_printf = ft_printf("ft_printf ---> %c\n", '-');
+    ft_putnbr(retour_ft_printf - 3);
+    ft_putchar('\n');
+    ft_putchar('\n');
+    retour_printf = printf("printf ---> %c\n", '\n');
+    ft_putnbr(retour_printf);
+    ft_putchar('\n');
+    retour_ft_printf = ft_printf("ft_printf ---> %c\n", '\n');
+    ft_putnbr(retour_ft_printf - 3);
+    ft_putchar('\n');
+    ft_putchar('\n');
     //s
     //u
     //x

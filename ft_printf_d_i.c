@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <libftprintf.h>
+#include "libftprintf.h"
 
 //On va ici utiliser la fonction ft_putnbr pour afficher un décimal et aussi retourner le nb de chiffre du décimal qui sera la variable i.
 /*
@@ -14,15 +14,24 @@ int ft_putnbr_d_i(int nb){
     int i;
 
     i = 0;
+     if (nb == INT_MIN) {
+        ft_putstr("-2147483648");  // Affiche directement la valeur minimale
+        return 11;  // Longueur de "-2147483648"
+    }
+    if(nb == INT_MAX){
+        ft_putstr("2147483647");
+        return(10);
+    }
     if (nb < 0)             //condition si le nb est négatif.
 	{
 		ft_putchar('-'); //affiche le signe négatif.
+        
 		nb = -nb;           //transforme le nb négatif en positif.
         i += 1;             //incrémente la variable à retourner.
 	}
 	if (nb >= 10)           //condition si le nb est plus grand ou égale à 10. Maintenant que la conversion est faite et que nb est plus grand que 10. On peut commencer la récursion.
 	{
-        i += 1;             
+                   
 		ft_putnbr_d_i(nb / 10); //appel recursive de la partie entière de nb. ex : (123 / 10) == 12
 		ft_putnbr_d_i(nb % 10); //appel recursive de la dernière partie de nb. ex : (123 % 10) == 3
 	}

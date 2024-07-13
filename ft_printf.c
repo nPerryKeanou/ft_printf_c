@@ -2,7 +2,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <libftprintf.h>
+#include "libftprintf.h"
 
 /*
     va_start    :   Initialise une variable ' va_list ' à utiliser avec ' va_arg ' et ' va_end '. 
@@ -84,8 +84,7 @@ int     ft_printf(const char *format, ...){
     while(format[i] != '\0'){
         if(format[i] == '%'){
             if(format[i + 1] == 'c'){
-                ft_putchar(format[i + 1]);
-                compteur += 1;
+                compteur += printf_c(va_arg(arg_list, int));//pourquoi int ? En C, les arguments de fonctions de type char sont automatiquement promus en int lorsqu'ils sont passés comme arguments de fonctions variadiques (utilisant ... et va_arg).//Cela signifie que même si vous passez un char comme argument, il est traité comme un int lorsqu'il est extrait de arg_list avec va_arg.
                 i += 2;
             }else if(format[i + 1] == 's'){
                 compteur += printf_nb_string(va_arg(arg_list, char*));

@@ -1,3 +1,6 @@
+#include <limits.h>
+
+int printf_c(char c);
 int	ft_putnbr_base(int nbr, char *base);
 int ft_putnbr_d_i(int nb);
 int ft_printf(const char *format, ...);
